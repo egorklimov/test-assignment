@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: api-gateway
+  version: 0.0.1-SNAPSHOT
+
+tags:
+  - name: Cat
+    description: Operations on cats.
+
+paths:
+  /api/cats:
+    get:
+      operationId: getAllCats
+      responses:
+        '200':
+          description: Information about cats.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllCatsResponse'
+      tags:
+        - Cat
+
+components:
+  schemas:
+    CatResponse:
+      nullable: false
+      properties:
+        name:
+          nullable: false
+          type: string
+        breed:
+          nullable: false
+          type: string
+      required:
+        - name
+        - breed
+      type: object
+
+    AllCatsResponse:
+      nullable: false
+      properties:
+        total:
+          nullable: false
+          type: integer
+          format: int64
+        cats:
+          nullable: false
+          type: array
+          items:
+            $ref: '#/components/schemas/CatResponse'
+      required:
+        - total
+        - cats
+      type: object
+

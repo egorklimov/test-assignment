@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: cat-api
+  main:
+    banner-mode: off
+  jmx:
+    enabled: false
+  flyway:
+    baselineOnMigrate: true
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+app:
+  number-of-cats-to-add-on-startup: 1000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - prometheus
+
+springdoc:
+  cache:
+    disabled: true
+  swagger-ui:
+    url: /openapi.yaml
