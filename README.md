@@ -80,7 +80,7 @@ Migration will be applied on the application startup.
 **`cat-api`** generates cat records on startup.
 
 You can configure connection to the database using your favorite tool, e.g., psql (*password: postgres*):
-```bash
+```shell
  psql -h localhost -p 5432 -d cats -U postgres
 ```
 <p align="center">
