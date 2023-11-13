@@ -7,8 +7,8 @@
 
 This task has two parts:
 * In the main part, you need to analyze traces and other runtime information of a test project. 
-  In the repository you will find a docker-compose configuration containing a service called **cat-api** and an OpenTelemetry infrastructure to collect its execution traces. 
-  The tool should reveal bugs and performance issues in the **cat-api** service by analyzing execution traces or other runtime information. 
+  In the repository you will find a docker-compose configuration containing a service called **`cat-api`** and an OpenTelemetry infrastructure to collect its execution traces. 
+  The tool should reveal bugs and performance issues in the **`cat-api`** service by analyzing execution traces or other runtime information. 
 * In the bonus part of the task, we ask you to improve this tool using machine learning models.
 
 ## Quick start
@@ -22,7 +22,7 @@ Firstly, you can explore the trace data [added](https://github.com/egorklimov/te
     ```bash
     docker compose up
     ```
-3. Go to the **cat-api** HTTP API [documentation](http://localhost:8080/swagger-ui/index.html) and call the endpoints. 
+3. Go to the **`cat-api`** HTTP API [documentation](http://localhost:8080/swagger-ui/index.html) and call the endpoints. 
 4. You will then be able to find traces in [Jaeger UI](http://localhost:16686/search?operation=GET%20%2Fapi%2Fcats&service=cat-api) related to your API calls (see Fig. 2).
 
 <p align="center">
@@ -48,17 +48,17 @@ Service to get information about cats.
 
 <details><summary><b>Show details</b></summary>
 
-To build docker image locally, you can run **jibDockerBuild** command:
+To build docker image locally, you can run **`jibDockerBuild`** command:
 ```bash
 ./gradlew jibDockerBuild
 ```
 
-[ktlint](https://github.com/pinterest/ktlint) is used to check code style, to auto-format source code you can run **ktlintFormat** command: 
+[ktlint](https://github.com/pinterest/ktlint) is used to check code style, to auto-format source code you can run **`ktlintFormat`** command: 
 ```bash
 ./gradlew ktlintFormat
 ```
 
-To run tests in [the test folder,](https://github.com/egorklimov/test-assignment/blob/docs/src/test) you can run **test** command: 
+To run tests in [the test folder,](https://github.com/egorklimov/test-assignment/blob/docs/src/test) you can run **`test`** command: 
 ```bash
 ./gradlew test
 ```
@@ -66,7 +66,7 @@ To run tests in [the test folder,](https://github.com/egorklimov/test-assignment
 #### HTTP API
 OpenAPI spec is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/docs/src/main/resources/static/openapi.yaml) file. 
 
-App follows API-first approach, if you want to add new endpoints, please modify openapi spec and then generate server side using **openApiGenerate** command:
+App follows API-first approach, if you want to add new endpoints, please modify openapi spec and then generate server side using **`openApiGenerate`** command:
 ```bash
 ./gradlew openApiGenerate
 ```
@@ -77,7 +77,7 @@ Flyway is used to migrate database schema.
 If you want to update database schema, please create a new migration (e.g., V3__my_changes.sql). 
 Migration will be applied on the application startup.
 
-**cat-api** generates cat data to the database on startup.
+**`cat-api`** generates cat records on startup.
 
 You can configure connection to the database using your favorite tool, e.g., psql (*password: postgres*):
 ```bash
@@ -97,9 +97,9 @@ Distributed tracing is a method of observing requests as they propagate through 
 <details><summary><b>Show details</b></summary>
 
 Dataflow is similar to the [Jaeger’s SPM demo environment](https://github.com/jaegertracing/jaeger/tree/main/docker-compose/monitor).
-1. **cat-api** is instrumented by OpenTelemetry **javaagent**.
-2. **javaagent** sends metrics to the **otel-collector**
-3. **otel-collector** sends data to the **Jaeger** and **Prometheus**
+1. **`cat-api`** is instrumented by OpenTelemetry **`javaagent`**.
+2. **`javaagent`** sends metrics to the **`otel-collector`**
+3. **`otel-collector`** sends data to the **`Jaeger`** and **`Prometheus`**
 
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/tracing.png?raw=true" alt="Tracing schema" width="738">
