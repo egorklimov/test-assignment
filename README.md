@@ -27,6 +27,8 @@ To work with real data, you can setup the environment:
 4. You will then be able to find traces in [Jaeger UI](http://localhost:16686/search?operation=GET%20%2Fapi%2Fcats&service=cat-api) related to your API calls.
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/quickstart.gif?raw=true" alt="Quickstart" width="738">
+  <br/>
+  <em>Recorded quickstart: docs/quickstart.gif</em>
 </p>
 
 <p align="center">
