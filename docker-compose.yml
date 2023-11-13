@@ -2,7 +2,7 @@ version: '2'
 
 services:
   cat-api:
-    image: ghcr.io/egorklimov/test-aasignment/cat-api:0.0.1-SNAPSHOT
+    image: ghcr.io/egorklimov/test-assignment/cat-api:0.0.1-SNAPSHOT
     container_name: cat-api
     ports:
       - 8080:8080
