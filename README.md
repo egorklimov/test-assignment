@@ -27,6 +27,7 @@ Firstly, you can explore the trace data [added](https://github.com/egorklimov/te
 
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/schema.png?raw=true" alt="C4 container diagram" width="738">
+  <br/>
   <em>Fig.1. C4 container diagram for the test task</em>
 </p>
 
@@ -35,6 +36,7 @@ Firstly, you can explore the trace data [added](https://github.com/egorklimov/te
 
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/jaeger.png?raw=true" alt="Jaeger example" width="738">
+  <br/>
   <em>Fig. 2. Trace associated with GET request call <b>/api/cats</b></em>
 </p>
 
@@ -83,6 +85,7 @@ You can configure connection to the database using your favorite tool, e.g., psq
 ```
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/db_schema.png?raw=true" alt="Database schema" width="369">
+  <br/>
   <em>Fig. 3. Database schema</em>
 </p>
 
@@ -100,6 +103,7 @@ Dataflow is similar to the [Jaeger’s SPM demo environment](https://github.com/
 
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/tracing.png?raw=true" alt="Tracing schema" width="738">
+  <br/>
   <em>Fig. 4. Distributed tracing schema</em>
 </p>
 
