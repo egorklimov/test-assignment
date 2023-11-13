@@ -5,16 +5,17 @@
 
 ## About
 
-This task has two parts.
-In the main part, you need to analyze traces and other runtime information of a test project. 
-In the repository you will find a docker-compose configuration containing a service called **cat-api** and an OpenTelemetry infrastructure to collect its execution traces. 
-The tool should reveal bugs and performance issues in the **cat-api** service by analyzing execution traces or other runtime information.
-In the bonus part of the task, we ask you to improve this tool using machine learning models.
+This task has two parts:
+* In the main part, you need to analyze traces and other runtime information of a test project. 
+  In the repository you will find a docker-compose configuration containing a service called **cat-api** and an OpenTelemetry infrastructure to collect its execution traces. 
+  The tool should reveal bugs and performance issues in the **cat-api** service by analyzing execution traces or other runtime information. 
+* In the bonus part of the task, we ask you to improve this tool using machine learning models.
 
 ## Quick start
 Firstly, you can explore the trace data [added](https://github.com/egorklimov/test-assignment/blob/docs/trace_exploration) to the repository.
 
-To setup test environment:
+<details><summary><b>Setup environment</b></summary>
+
 0. Install [docker](https://docs.docker.com/engine/install/) & [docker compose](https://docs.docker.com/compose/install/)
 1. Clone repository or download [docker-compose](https://github.com/egorklimov/test-assignment/blob/docs/docker-compose.yml) configuration
 2. Start docker-compose:
@@ -26,15 +27,18 @@ To setup test environment:
 
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/schema.png?raw=true" alt="C4 container diagram" width="738">
+  <em>Fig.1. C4 container diagram for the test task</em>
 </p>
-Fig.1. C4 container diagram for the test task
+
 > **Note**
 > it doesn't mean that your solution must be dockerized, in the C4 model, a container represents an application or a data store
 
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/jaeger.png?raw=true" alt="Jaeger example" width="738">
+  <em>Fig. 2. Trace associated with GET request call <b>/api/cats</b></em>
 </p>
-Fig. 2. Trace associated with GET request call /api/cats
+
+</details>
 
 ## Development
 ### cat-api
@@ -47,7 +51,7 @@ To build docker image locally, you can run **jibDockerBuild** command:
 ./gradlew jibDockerBuild
 ```
 
-[ktlint](https://github.com/pinterest/ktlint) is used to check code-style, to auto-format code you can run **ktlintFormat** command: 
+[ktlint](https://github.com/pinterest/ktlint) is used to check code style, to auto-format source code you can run **ktlintFormat** command: 
 ```bash
 ./gradlew ktlintFormat
 ```
@@ -58,7 +62,7 @@ To run tests in [the test folder,](https://github.com/egorklimov/test-assignment
 ```
 
 #### HTTP API
-OpenAPI spec is described in [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/docs/src/main/resources/static/openapi.yaml) file. 
+OpenAPI spec is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/docs/src/main/resources/static/openapi.yaml) file. 
 
 App follows API-first approach, if you want to add new endpoints, please modify openapi spec and then generate server side using **openApiGenerate** command:
 ```bash
@@ -78,9 +82,9 @@ You can configure connection to the database using your favorite tool, e.g., psq
  psql -h localhost -p 5432 -d cats -U postgres
 ```
 <p align="center">
-  <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/db_schema.png?raw=true" alt="Database schema" width="738">
+  <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/db_schema.png?raw=true" alt="Database schema" width="369">
+  <em>Fig. 3. Database schema</em>
 </p>
-Fig. 3. Database schema
 
 </details>
 
@@ -96,7 +100,7 @@ Dataflow is similar to the [Jaeger’s SPM demo environment](https://github.com/
 
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/tracing.png?raw=true" alt="Tracing schema" width="738">
+  <em>Fig. 4. Distributed tracing schema</em>
 </p>
-Fig. 3. Distributed tracing schema
 
 </details>
