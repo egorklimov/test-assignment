@@ -23,8 +23,11 @@ To work with real data, you can setup the environment:
     ```bash
     docker compose up
     ```
-3. Go to the **`cat-api`** HTTP API [documentation](http://localhost:8080/swagger-ui/index.html) and call the endpoints. 
-4. You will then be able to find traces in [Jaeger UI](http://localhost:16686/search?operation=GET%20%2Fapi%2Fcats&service=cat-api) related to your API calls (see Fig. 2).
+3. Go to the **`cat-api`** HTTP API [documentation](http://localhost:8080/swagger-ui/index.html) and call the endpoints. To call endpoint, please press "Try it out" button near the endpoint documentation.
+4. You will then be able to find traces in [Jaeger UI](http://localhost:16686/search?operation=GET%20%2Fapi%2Fcats&service=cat-api) related to your API calls.
+<p align="center">
+  <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/quickstart.gif?raw=true" alt="Quickstart" width="738">
+</p>
 
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/schema.png?raw=true" alt="C4 container diagram" width="738">
@@ -34,13 +37,6 @@ To work with real data, you can setup the environment:
 
 > **Note**
 > it doesn't mean that your solution must be dockerized, in the C4 model, a container represents an application or a data store
-
-<p align="center">
-  <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/jaeger.png?raw=true" alt="Jaeger example" width="738">
-  <br/>
-  <em>Fig. 2. Trace associated with GET request call <b>/api/cats</b></em>
-</p>
-
 
 ## Development
 ### cat-api
