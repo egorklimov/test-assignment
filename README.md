@@ -1,9 +1,9 @@
 [![Java CI with Gradle](https://github.com/egorklimov/test-assignment/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/egorklimov/test-assignment/actions/workflows/ci.yml)
 # `test-assignment`
 
-👋 Welcome to the test task of the Utilizing Runtime Information to Improve Development Process PhD Position!
 
-## About
+## 👋 About
+Welcome to the test task of the Utilizing Runtime Information to Improve Development Process PhD Position!
 
 This task has two parts:
 * In the main part, you need to analyze traces and other runtime information of a test project. 
@@ -80,9 +80,10 @@ Migration will be applied on the application startup.
 **`cat-api`** generates cat records on startup.
 
 You can configure connection to the database using your favorite tool, e.g., psql (*password: postgres*):
-```console
+```bash
  psql -h localhost -p 5432 -d cats -U postgres
 ```
+
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/db_schema.png?raw=true" alt="Database schema" width="369">
   <br/>
