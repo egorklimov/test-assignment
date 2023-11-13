@@ -23,7 +23,7 @@ Firstly, you can explore the trace data [added](https://github.com/egorklimov/te
     docker compose up
     ```
 3. Go to the **cat-api** HTTP API [documentation](http://localhost:8080/swagger-ui/index.html) and call the endpoints. 
-4. You will then be able to find traces in [Jaeger UI](http://localhost:16686/search?operation=GET%20%2Fapi%2Fcats&service=cat-api) related to your API calls.
+4. You will then be able to find traces in [Jaeger UI](http://localhost:16686/search?operation=GET%20%2Fapi%2Fcats&service=cat-api) related to your API calls (see Fig. 2).
 
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/schema.png?raw=true" alt="C4 container diagram" width="738">
