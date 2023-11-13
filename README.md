@@ -15,7 +15,7 @@ This task has two parts:
 
 To explore the data format, you can analyze the trace data [added](https://github.com/egorklimov/test-assignment/blob/docs/trace_exploration) to the repository.
 
-<details><summary><b>To work with real data, you can setup the environment</b></summary>
+To work with real data, you can setup the environment:
 
 0. Install [docker](https://docs.docker.com/engine/install/) & [docker compose](https://docs.docker.com/compose/install/)
 1. Clone repository or download [docker-compose](https://github.com/egorklimov/test-assignment/blob/docs/docker-compose.yml) configuration
@@ -41,13 +41,10 @@ To explore the data format, you can analyze the trace data [added](https://githu
   <em>Fig. 2. Trace associated with GET request call <b>/api/cats</b></em>
 </p>
 
-</details>
 
 ## Development
 ### cat-api
 Service to get information about cats.
-
-<details><summary><b>Show details</b></summary>
 
 To build docker image locally, you can run **`jibDockerBuild`** command:
 ```bash
@@ -91,12 +88,8 @@ You can configure connection to the database using your favorite tool, e.g., psq
   <em>Fig. 3. Database schema</em>
 </p>
 
-</details>
-
 ### Distributed tracing
 Distributed tracing is a method of observing requests as they propagate through distributed cloud environments.
-
-<details><summary><b>Show details</b></summary>
 
 Dataflow is similar to the [Jaeger’s SPM demo environment](https://github.com/jaegertracing/jaeger/tree/main/docker-compose/monitor).
 1. **`cat-api`** is instrumented by OpenTelemetry **`javaagent`**.
@@ -108,5 +101,3 @@ Dataflow is similar to the [Jaeger’s SPM demo environment](https://github.com/
   <br/>
   <em>Fig. 4. Distributed tracing schema</em>
 </p>
-
-</details>
