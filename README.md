@@ -12,9 +12,10 @@ This task has two parts:
 * In the bonus part of the task, we ask you to improve this tool using machine learning models.
 
 ## Quick start
-Firstly, you can explore the trace data [added](https://github.com/egorklimov/test-assignment/blob/docs/trace_exploration) to the repository.
 
-<details><summary><b>Setup environment</b></summary>
+To explore the data format, you can analyze the trace data [added](https://github.com/egorklimov/test-assignment/blob/docs/trace_exploration) to the repository.
+
+<details><summary><b>To work with real data, you can setup the environment</b></summary>
 
 0. Install [docker](https://docs.docker.com/engine/install/) & [docker compose](https://docs.docker.com/compose/install/)
 1. Clone repository or download [docker-compose](https://github.com/egorklimov/test-assignment/blob/docs/docker-compose.yml) configuration
