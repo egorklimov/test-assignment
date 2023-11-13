@@ -1,0 +1,39 @@
+@startuml
+
+'!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+
+!include <c4/C4_Container.puml>
+!include <c4/C4_Component.puml>
+
+'ref http://plantuml.com/stdlib
+!include <office/Users/user.puml>
+!include <office/Users/mobile_user.puml>
+
+
+Person(user, User)
+
+System_Boundary(c1, "test-assignment") {
+    Container_Boundary(app, "cat-api") {
+        Component(cat_api, "cat-api", "Java/Kotlin", "Provides some functionality via API.")
+        Component(javaagent, "opentelemetry-javaagent", "Java", "Instruments service to capture telemetry data")
+        Rel_L(javaagent, cat_api, "Instruments")
+    }
+
+    ContainerDb(database, "Database", "SQL Database")
+    Container(jaeger, "Jaeger all-in-one", "Distributed tracing platform", "Stores traces, logs, metrics")
+    Container(grafana, "grafana", "tool", "Observability and data visualization platform")
+    Container(prometheus, "prometheus", "tool", "Monitoring system & time series database")
+    Container(otel_collector, "otel-collector", "tool", "Vendor-agnostic implementation on how to receive, process and export telemetry data")
+}
+
+Rel(user, app, "Uses", "HTTPS")
+
+Rel_Neighbor(app, database, "Reads from and writes to", "sync, JDBC")
+Rel(javaagent, otel_collector, "Sends traces and metrics", "gRPC, HTTP")
+Rel_L(otel_collector, jaeger, "Sends traces", "thrift")
+
+Rel_D(otel_collector, prometheus, "Sends metrics derived from spans", "HTTP")
+Rel(jaeger, prometheus, "Queries span metrics", "HTTP")
+Rel(grafana, prometheus, "Queries span metrics", "HTTP")
+
+@enduml

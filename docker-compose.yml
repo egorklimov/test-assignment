@@ -32,7 +32,7 @@ services:
       - '5432:5432'
 
   jaeger:
-    image: jaegertracing/all-in-one:1.51
+    image: jaegertracing/all-in-one:latest
     container_name: jaeger
     volumes:
       - "./conf/jaeger-ui.json:/etc/jaeger/jaeger-ui.json"

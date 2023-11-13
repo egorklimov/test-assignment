@@ -9,14 +9,28 @@ receivers:
       grpc:
       http:
 
+#  Not supported in v0.80
+#  postgresql:
+#    endpoint: cat-api-postgres:5432
+#    transport: tcp
+#    username: postgres
+#    password: postgres
+#    databases:
+#      - cats
+#    metrics:
+#      postgresql.sequential_scans:
+#        enabled: true
+#    collection_interval: 10s
+#    tls:
+#      insecure: true
+#      insecure_skip_verify: true
+
 exporters:
   logging:
     verbosity: detailed
   prometheus:
     endpoint: "0.0.0.0:8889"
-
-  prometheusremotewrite:
-    endpoint: "https://prometheus:8889/api/v1/push"
+    add_metric_suffixes: false # Otherwise, SPM doesn't work with otel_collector 0.88 (works with 0.80).
 
   otlp:
     endpoint: jaeger:4317
@@ -33,7 +47,7 @@ service:
   pipelines:
     traces:
       receivers: [otlp, jaeger]
-      processors: [batch]
+      processors: [batch] #transform
       exporters: [spanmetrics, otlp]
     # The exporter name in this pipeline must match the spanmetrics.metrics_exporter name.
     # The receiver is just a dummy and never used; added to pass validation requiring at least one receiver in a pipeline.
@@ -43,5 +57,10 @@ service:
     metrics:
       receivers: [otlp]
       processors: [batch]
-      exporters: [prometheusremotewrite]
+      exporters: [prometheus]
+#    not supported in 0.80
+#    metrics/postgresql:
+#      receivers: [postgresql]
+#      processors: [batch]
+#      exporters: [prometheus]
 
