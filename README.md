@@ -24,7 +24,7 @@ This task has two parts:
 * Use not only traces, but also logs and other data (even git information).
 * Take into account that runtime information may be obtained from different environments (different service installations).
 
-You are welcome to:
+**You are welcome to**:
 * Choose any implementation you want — it can be a CLI tool, standalone tool or IntelliJ plugin, any other options are also valid.
 * Modify the test project to add new cases to analyze or change the runtime information processing.
 
