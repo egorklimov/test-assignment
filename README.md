@@ -11,6 +11,23 @@ This task has two parts:
   The tool should reveal bugs and performance issues in the **`cat-api`** service by analyzing execution traces or other runtime information. 
 * In the bonus part of the task, we ask you to improve this tool using machine learning models.
 
+**Requirements**:
+* Detect performance issues, anomalies, bugs, code or architectural smells using runtime information. As a first step, you should detect the N+1 query problem in the **`cat-api`** service.
+* Issues found must be linked to source code and shown to the user. For example, the problem is in method X.
+
+**Desirable**:
+* Effectiveness: we will pay attention to the performance of your solution
+* Scalability: the solution can be used with different projects, runtimes, and languages.
+* Extensibility: detection of new types of issues can be easily added.
+* Code quality and tests: the tool is designed with attention to code quality.
+* User (developer) experience: it can be used by developers on a daily basis to assist in the software development process.
+* Use not only traces, but also logs and other data (even git information).
+* Take into account that runtime information may be obtained from different environments (different service installations).
+
+You are welcome to:
+* Choose any implementation you want — it can be a CLI tool, standalone tool or IntelliJ plugin, any other options are also valid.
+* Modify the test project to add new cases to analyze or change the runtime information processing.
+
 ## Quick start
 
 To explore the data format, you can analyze the trace data [added](https://github.com/egorklimov/test-assignment/blob/docs/trace_exploration) to the repository.
