@@ -2,15 +2,66 @@ openapi: 3.0.0
 info:
   title: cat-api
   version: 0.0.1-SNAPSHOT
+  description: Service to store information about cats.
 
 tags:
   - name: Cat
     description: Operations on cats.
 
 paths:
+  /api/cats/pairs:
+    post:
+      operationId: generatePairs
+      parameters:
+        - in: query
+          name: size
+          required: true
+          schema:
+            type: integer
+            default: 100
+          description: Number of pairs.
+      responses:
+        '200':
+          description: Cat pairs for random coffee.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CatPairResponse'
+      tags:
+        - Cat
+
+  /api/cat:
+    post:
+      operationId: addCat
+      requestBody:
+        description: Adds a cat.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCatRequest'
+      responses:
+        '200':
+          description: Cat added.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatResponse'
+      tags:
+        - Cat
   /api/cats:
     get:
       operationId: getAllCats
+      parameters:
+        - in: query
+          name: name
+          required: false
+          example: Nick
+          schema:
+            type: string
+          description: Cat's name
       responses:
         '200':
           description: Information about cats.
@@ -23,7 +74,10 @@ paths:
 
 components:
   schemas:
-    CatResponse:
+    CreateCatRequest:
+      example:
+        name: Nick
+        breed: Cornish Rex
       nullable: false
       properties:
         name:
@@ -37,7 +91,62 @@ components:
         - breed
       type: object
 
+    CatPairResponse:
+      example:
+        first:
+          id: 10
+          name: Daisy
+          breed: Birman
+        second:
+          id: 1
+          name: Nick
+          breed: Cornish Rex
+
+      nullable: false
+      properties:
+        first:
+          nullable: false
+          type: object
+          $ref: '#/components/schemas/CatResponse'
+        second:
+          type: object
+          nullable: false
+          $ref: '#/components/schemas/CatResponse'
+      required:
+        - first
+        - second
+      type: object
+
+    CatResponse:
+      example:
+        id: 1
+        name: Nick
+        breed: Cornish Rex
+      nullable: false
+      properties:
+        id:
+          nullable: false
+          type: integer
+          format: int64
+        name:
+          nullable: false
+          type: string
+        breed:
+          nullable: false
+          type: string
+      required:
+        - id
+        - name
+        - breed
+      type: object
+
     AllCatsResponse:
+      example:
+        total: 1
+        cats:
+          id: 1
+          name: Nick
+          breed: Cornish Rex
       nullable: false
       properties:
         total:

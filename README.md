@@ -81,7 +81,7 @@ OpenAPI spec is described in the [openapi.yaml](https://github.com/egorklimov/te
 
 App follows API-first approach, if you want to add new endpoints, please modify openapi spec and then generate server side using **`openApiGenerate`** command:
 ```bash
-./gradlew openApiGenerate
+./gradlew clean openApiGenerate
 ```
 
 #### Database

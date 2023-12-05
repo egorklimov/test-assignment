@@ -19,6 +19,8 @@ services:
       OTEL_TRACES_EXPORTER: otlp
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel_collector:4317
       OTEL_RESOURCE_ATTRIBUTES: 'service.name=cat-api'
+      SPRING_CLOUD_OPENFEIGN_CLIENT_CONFIG_RANDOMCOFFEE_URL: http://cat-recommender-api:8080
+      APP_NUMBER_OF_CATS_TO_ADD_ON_STARTUP: 1000
 
   cat-api-postgres:
     image: postgres:15.2-alpine
@@ -30,6 +32,21 @@ services:
       POSTGRES_DB: cats
     ports:
       - '5432:5432'
+
+  cat-recommender-api:
+    image: ghcr.io/egorklimov/test-assignment/cat-recommender:0.0.1
+    container_name: cat-recommender-api
+    ports:
+      - 8081:8080
+    depends_on:
+      - otel_collector
+      - cat-api
+    environment:
+      OTEL_METRICS_EXPORTER: otlp
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel_collector:4317
+      OTEL_RESOURCE_ATTRIBUTES: 'service.name=cat-recommender-api'
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
 
   jaeger:
     image: jaegertracing/all-in-one:latest

@@ -1,31 +1,20 @@
-package org.jetbrains.repository
+package org.jetbrains.service
 
+import io.opentelemetry.instrumentation.annotations.WithSpan
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.runBlocking
 import org.jetbrains.configuration.AppConfiguration
+import org.jetbrains.repository.Cat
+import org.jetbrains.repository.CatBreedRepository
+import org.jetbrains.repository.CatRepository
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.boot.context.event.ApplicationReadyEvent
 import org.springframework.context.event.EventListener
-import org.springframework.data.annotation.Id
-import org.springframework.data.jdbc.repository.query.Query
-import org.springframework.data.relational.core.mapping.Column
-import org.springframework.data.relational.core.mapping.Table
-import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
-
-@Table("cat")
-data class Cat(
-    @Id
-    var id: Long,
-    @Column("breed_id")
-    val breedId: Long,
-    val name: String,
-    @Column("favorite_spot")
-    val favoriteSpot: String
-)
-
-interface CatRepository : CrudRepository<Cat, Long> {
-    @Query("SELECT COUNT(id) FROM CAT")
-    fun countAll(): Long
-}
 
 @Component
 class CatInitializer(
@@ -33,17 +22,22 @@ class CatInitializer(
     val catRepository: CatRepository,
     val appConfiguration: AppConfiguration
 ) {
+    private val log: Logger = LoggerFactory.getLogger(CatInitializer::class.java)
 
-    @Transactional
+    @WithSpan
     @EventListener(ApplicationReadyEvent::class)
-    fun createCats() {
+    fun createCats() = runBlocking {
         val catBreedIds: List<Long> = catBreedRepository.findAll().map { it.id }.toList()
         generateSequence { Cat(0L, catBreedIds.random(), CAT_NAMES.random(), CAT_SPOTS.random()) }
-            .take(appConfiguration.numberOfCatsToAddOnStartup.toInt())
-            .chunked(100)
-            .forEach { createCatBatch(it) }
+            .take(appConfiguration.numberOfCatsToAddOnStartup)
+            .chunked(appConfiguration.batchSize)
+            .map { GlobalScope.async { createCatBatch(it) } }
+            .toList()
+            .awaitAll()
+        log.info("Added {} cats to the database", appConfiguration.numberOfCatsToAddOnStartup)
     }
 
+    @Transactional
     fun createCatBatch(batch: List<Cat>) {
         catRepository.saveAll(batch)
     }

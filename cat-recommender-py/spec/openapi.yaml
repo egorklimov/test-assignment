@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: cat-random-coffee-recommender API
+  version: 0.0.1
+  description: |
+    Service for recommending cat pairs for random coffee.
+
+tags:
+  - name: RandomCoffee
+
+paths:
+  /api/recommend:
+    post:
+      operationId: suggestCat
+      requestBody:
+        description: Suggests a cat for a coffee.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SuggestCatForRandomCoffeeRequest'
+      responses:
+        '200':
+          description: Suggested cat.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatForCoffeeResponse'
+      tags:
+        - RandomCoffee
+
+components:
+  schemas:
+    SuggestCatForRandomCoffeeRequest:
+      nullable: false
+      properties:
+        catId:
+          nullable: false
+          type: integer
+          format: int64
+        name:
+          nullable: false
+          type: string
+        breed:
+          nullable: false
+          type: string
+      required:
+        - catId
+        - name
+        - breed
+      type: object
+
+    CatForCoffeeResponse:
+      nullable: false
+      properties:
+        id:
+          nullable: false
+          type: integer
+          format: int64
+      required:
+        - id
+      type: object

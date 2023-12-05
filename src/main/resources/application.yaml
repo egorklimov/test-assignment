@@ -7,12 +7,21 @@ spring:
     enabled: false
   flyway:
     baselineOnMigrate: true
-
   datasource:
     driver-class-name: org.postgresql.Driver
+  cloud:
+    openfeign:
+      client:
+        config:
+          randomCoffee:
+            url: http://pet-shop:8080
+            connectTimeout: 5000
+            readTimeout: 5000
+            loggerLevel: full
 
 app:
-  number-of-cats-to-add-on-startup: 1000
+  number-of-cats-to-add-on-startup: 20000
+  batch-size: 20000
 
 management:
   endpoints:
