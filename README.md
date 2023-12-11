@@ -30,12 +30,12 @@ This task has two parts:
 
 ## Quick start
 
-To explore the data format, you can analyze the trace data [added](https://github.com/egorklimov/test-assignment/blob/docs/trace_exploration) to the repository.
+To explore the data format, you can analyze the trace data [added](https://github.com/egorklimov/test-assignment/blob/main/trace_exploration) to the repository.
 
 To work with real data, you can setup the environment:
 
 0. Install [docker](https://docs.docker.com/engine/install/) & [docker compose](https://docs.docker.com/compose/install/)
-1. Clone repository or download [docker-compose](https://github.com/egorklimov/test-assignment/blob/docs/docker-compose.yml) configuration
+1. Clone repository or download [docker-compose](https://github.com/egorklimov/test-assignment/blob/main/docker-compose.yml) configuration
 2. Start docker-compose:
     ```bash
     docker compose up
@@ -43,13 +43,13 @@ To work with real data, you can setup the environment:
 3. Go to the **`cat-api`** HTTP API [documentation](http://localhost:8080/swagger-ui/index.html) and call the endpoints. To call endpoint, please press "Try it out" button near the endpoint documentation.
 4. You will then be able to find traces in [Jaeger UI](http://localhost:16686/search?operation=GET%20%2Fapi%2Fcats&service=cat-api) related to your API calls.
 <p align="center">
-  <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/quickstart.gif?raw=true" alt="Quickstart" width="738">
+  <img src="https://github.com/egorklimov/test-assignment/blob/main/docs/quickstart.gif?raw=true" alt="Quickstart" width="738">
   <br/>
   <em>Recorded quickstart: docs/quickstart.gif</em>
 </p>
 
 <p align="center">
-  <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/schema.png?raw=true" alt="C4 container diagram" width="738">
+  <img src="https://github.com/egorklimov/test-assignment/blob/main/docs/schema.png?raw=true" alt="C4 container diagram" width="738">
   <br/>
   <em>Fig.1. C4 container diagram for the test task</em>
 </p>
@@ -71,21 +71,29 @@ To build docker image locally, you can run **`jibDockerBuild`** command:
 ./gradlew ktlintFormat
 ```
 
-To run tests in [the test folder,](https://github.com/egorklimov/test-assignment/blob/docs/src/test) you can run **`test`** command: 
+To run tests in [the test folder,](https://github.com/egorklimov/test-assignment/blob/main/src/test) you can run **`test`** command: 
 ```bash
 ./gradlew test
 ```
 
 #### HTTP API
-OpenAPI spec is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/docs/src/main/resources/static/openapi.yaml) file. 
+OpenAPI spec is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/main/src/main/resources/static/openapi.yaml) file. 
 
 App follows API-first approach, if you want to add new endpoints, please modify openapi spec and then generate server side using **`openApiGenerate`** command:
 ```bash
-./gradlew clean openApiGenerate
+./gradlew openApiGenerate
+```
+
+#### cat-recommender client
+OpenAPI spec for cat-recommender is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/main/cat-recommender-py/spec/openapi.yaml) file.
+
+You can generate client using **`feignClientGenerate`** command:
+```bash
+./gradlew feignClientGenerate
 ```
 
 #### Database
-Database migrations are available in the [db.migration](https://github.com/egorklimov/test-assignment/blob/docs/src/main/resources/db/migration) directory.
+Database migrations are available in the [db.migration](https://github.com/egorklimov/test-assignment/blob/main/src/main/resources/db/migration) directory.
 Flyway is used to migrate database schema. 
 If you want to update database schema, please create a new migration (e.g., V3__my_changes.sql). 
 Migration will be applied on the application startup.
@@ -98,21 +106,38 @@ You can configure connection to the database using your favorite tool, e.g., psq
 ```
 
 <p align="center">
-  <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/db_schema.png?raw=true" alt="Database schema" width="369">
+  <img src="https://github.com/egorklimov/test-assignment/blob/main/docs/db_schema.png?raw=true" alt="Database schema" width="369">
   <br/>
   <em>Fig. 3. Database schema</em>
 </p>
+
+### cat-recommender-api
+Service to generate cat pairs.
+
+#### HTTP API
+OpenAPI spec is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/main/cat-recommender-py/spec/openapi.yaml) file.
+
+App follows API-first approach, if you want to add new endpoints, please modify openapi spec and then generate server side using **`openApiGenerate`** command:
+```bash
+./gradlew fastAPIGenerate
+```
+
+#### Build
+See [README](https://github.com/egorklimov/test-assignment/blob/main/cat-recommender-py/cat-recommender/README.md) file in cat-recommender directory.
+
 
 ### Distributed tracing
 Distributed tracing is a method of observing requests as they propagate through distributed cloud environments.
 
 Dataflow is similar to the [Jaeger’s SPM demo environment](https://github.com/jaegertracing/jaeger/tree/main/docker-compose/monitor).
 1. **`cat-api`** is instrumented by OpenTelemetry **`javaagent`**.
-2. **`javaagent`** sends metrics to the **`otel-collector`**
-3. **`otel-collector`** sends data to the **`Jaeger`** and **`Prometheus`**
+2. **`javaagent`** sends traces and metrics to the **`otel-collector`**
+3. **`cat-recommender-api`** is instrumented by **`opentelemetry-instrument`**
+4. **`opentelemetry-instrument`** sends traces to the **`otel-collector`**
+5**`otel-collector`** sends data to the **`Jaeger`** and **`Prometheus`**
 
 <p align="center">
-  <img src="https://github.com/egorklimov/test-assignment/blob/docs/docs/tracing.png?raw=true" alt="Tracing schema" width="738">
+  <img src="https://github.com/egorklimov/test-assignment/blob/main/docs/tracing.png?raw=true" alt="Tracing schema" width="738">
   <br/>
   <em>Fig. 4. Distributed tracing schema</em>
 </p>

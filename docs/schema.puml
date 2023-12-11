@@ -11,6 +11,7 @@ Person(user, User)
 System_Boundary(c1, "test-assignment") {
     ContainerDb(database, "Database", "SQL Database")
     Container(backend_api, "cat-api", "Java/Kotlin, Docker Container", "Provides some functionality via API.")
+    Container(python_api, "cat-recommender-api", "Python, FastAPI, Docker Container", "Generates cat pairs via API.")
     Container(jaeger, "Jaeger", "Distributed tracing platform", "Stores traces, logs, metrics")
 }
 
@@ -19,7 +20,9 @@ Container(trace_analyzer, "Your solution", "A tool for finding anomalies in runt
 Rel(user, backend_api, "Uses", "HTTPS")
 
 Rel_Neighbor(backend_api, database, "Reads from and writes to", "sync, JDBC")
+Rel(backend_api, python_api, "Requests cat pairs", "")
 
+Rel_Neighbor(python_api, jaeger, "Sends traces", "")
 Rel(backend_api, jaeger, "Sends traces and metrics", "")
 Rel(trace_analyzer, jaeger, "Requests runtime data")
 

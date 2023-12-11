@@ -19,6 +19,12 @@ System_Boundary(c1, "test-assignment") {
         Rel_L(javaagent, cat_api, "Instruments")
     }
 
+    Container_Boundary(python_app, "cat-recommender-api") {
+        Component(python_api, "cat-recommender-api", "Python, FastAPI, Docker Container", "Generates cat pairs via API.")
+        Component(opentelemtry_instrument, "opentelemtry-instrument", "Python", "Instruments service to capture telemetry data")
+        Rel_L(opentelemtry_instrument, python_api, "Instruments")
+    }
+
     ContainerDb(database, "Database", "SQL Database")
     Container(jaeger, "Jaeger all-in-one", "Distributed tracing platform", "Stores traces, logs, metrics")
     Container(grafana, "grafana", "tool", "Observability and data visualization platform")
@@ -27,6 +33,9 @@ System_Boundary(c1, "test-assignment") {
 }
 
 Rel(user, app, "Uses", "HTTPS")
+
+Rel(cat_api, python_app, "Requests pairs", "HTTP")
+Rel(opentelemtry_instrument, otel_collector, "Sends traces", "gRPC, HTTP")
 
 Rel_Neighbor(app, database, "Reads from and writes to", "sync, JDBC")
 Rel(javaagent, otel_collector, "Sends traces and metrics", "gRPC, HTTP")
