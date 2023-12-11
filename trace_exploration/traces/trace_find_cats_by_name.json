@@ -1,0 +1,1174 @@
+{
+    "data": [
+        {
+            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+            "spans": [
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "3a09b77a8e611e2d",
+                    "operationName": "CatService.countCats",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                            "spanID": "ea50c9af03f38297"
+                        }
+                    ],
+                    "startTime": 1702325553811598,
+                    "duration": 3028,
+                    "tags": [
+                        {
+                            "key": "code.function",
+                            "type": "string",
+                            "value": "countCats"
+                        },
+                        {
+                            "key": "code.namespace",
+                            "type": "string",
+                            "value": "org.jetbrains.service.CatService"
+                        },
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "internal"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p1",
+                    "warnings": null
+                },
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "518a239eb2b0b79d",
+                    "operationName": "CatRepository.findAllByName",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                            "spanID": "53a5aabf0347af8e"
+                        }
+                    ],
+                    "startTime": 1702325553801066,
+                    "duration": 8453,
+                    "tags": [
+                        {
+                            "key": "code.function",
+                            "type": "string",
+                            "value": "findAllByName"
+                        },
+                        {
+                            "key": "code.namespace",
+                            "type": "string",
+                            "value": "org.jetbrains.repository.CatRepository"
+                        },
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "internal"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p2",
+                    "warnings": null
+                },
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "bed4514dbd2e467f",
+                    "operationName": "CatBreedRepository.findById",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                            "spanID": "53a5aabf0347af8e"
+                        }
+                    ],
+                    "startTime": 1702325553809579,
+                    "duration": 1181,
+                    "tags": [
+                        {
+                            "key": "code.function",
+                            "type": "string",
+                            "value": "findById"
+                        },
+                        {
+                            "key": "code.namespace",
+                            "type": "string",
+                            "value": "org.jetbrains.repository.CatBreedRepository"
+                        },
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "internal"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p2",
+                    "warnings": null
+                },
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "90f719172ee8f1d0",
+                    "operationName": "CatRepository.countAll",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                            "spanID": "3a09b77a8e611e2d"
+                        }
+                    ],
+                    "startTime": 1702325553811645,
+                    "duration": 2965,
+                    "tags": [
+                        {
+                            "key": "code.function",
+                            "type": "string",
+                            "value": "countAll"
+                        },
+                        {
+                            "key": "code.namespace",
+                            "type": "string",
+                            "value": "org.jetbrains.repository.CatRepository"
+                        },
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "internal"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p2",
+                    "warnings": null
+                },
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "6a2bb9b124e20d3c",
+                    "operationName": "GET /api/cats",
+                    "references": [],
+                    "startTime": 1702325553771200,
+                    "duration": 48990,
+                    "tags": [
+                        {
+                            "key": "net.sock.host.addr",
+                            "type": "string",
+                            "value": "172.20.0.7"
+                        },
+                        {
+                            "key": "http.status_code",
+                            "type": "int64",
+                            "value": 200
+                        },
+                        {
+                            "key": "http.route",
+                            "type": "string",
+                            "value": "/api/cats"
+                        },
+                        {
+                            "key": "net.host.port",
+                            "type": "int64",
+                            "value": 8080
+                        },
+                        {
+                            "key": "http.method",
+                            "type": "string",
+                            "value": "GET"
+                        },
+                        {
+                            "key": "http.scheme",
+                            "type": "string",
+                            "value": "http"
+                        },
+                        {
+                            "key": "net.protocol.version",
+                            "type": "string",
+                            "value": "1.1"
+                        },
+                        {
+                            "key": "net.sock.peer.port",
+                            "type": "int64",
+                            "value": 36786
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "net.protocol.name",
+                            "type": "string",
+                            "value": "http"
+                        },
+                        {
+                            "key": "http.target",
+                            "type": "string",
+                            "value": "/api/cats?name=Nick"
+                        },
+                        {
+                            "key": "net.sock.peer.addr",
+                            "type": "string",
+                            "value": "192.168.65.1"
+                        },
+                        {
+                            "key": "user_agent.original",
+                            "type": "string",
+                            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+                        },
+                        {
+                            "key": "net.host.name",
+                            "type": "string",
+                            "value": "localhost"
+                        },
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "server"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p3",
+                    "warnings": null
+                },
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "53a5aabf0347af8e",
+                    "operationName": "CatService.findCatsByName",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                            "spanID": "ea50c9af03f38297"
+                        }
+                    ],
+                    "startTime": 1702325553801003,
+                    "duration": 9771,
+                    "tags": [
+                        {
+                            "key": "code.function",
+                            "type": "string",
+                            "value": "findCatsByName"
+                        },
+                        {
+                            "key": "code.namespace",
+                            "type": "string",
+                            "value": "org.jetbrains.service.CatService"
+                        },
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "internal"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p1",
+                    "warnings": null
+                },
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "ea50c9af03f38297",
+                    "operationName": "CatController.getAllCats",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                            "spanID": "6a2bb9b124e20d3c"
+                        }
+                    ],
+                    "startTime": 1702325553776407,
+                    "duration": 42945,
+                    "tags": [
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "internal"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p4",
+                    "warnings": null
+                },
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "824f05e678fac03b",
+                    "operationName": "cats",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                            "spanID": "ea50c9af03f38297"
+                        }
+                    ],
+                    "startTime": 1702325553800188,
+                    "duration": 428,
+                    "tags": [
+                        {
+                            "key": "db.statement",
+                            "type": "string",
+                            "value": ""
+                        },
+                        {
+                            "key": "db.system",
+                            "type": "string",
+                            "value": "postgresql"
+                        },
+                        {
+                            "key": "net.peer.port",
+                            "type": "int64",
+                            "value": 5432
+                        },
+                        {
+                            "key": "db.connection_string",
+                            "type": "string",
+                            "value": "postgresql://cat-api-postgres:5432"
+                        },
+                        {
+                            "key": "net.peer.name",
+                            "type": "string",
+                            "value": "cat-api-postgres"
+                        },
+                        {
+                            "key": "db.user",
+                            "type": "string",
+                            "value": "postgres"
+                        },
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "db.name",
+                            "type": "string",
+                            "value": "cats"
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "client"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p5",
+                    "warnings": null
+                },
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "10c1a1a08b7f6f75",
+                    "operationName": "SELECT cats.cat_breed",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                            "spanID": "bed4514dbd2e467f"
+                        }
+                    ],
+                    "startTime": 1702325553810126,
+                    "duration": 363,
+                    "tags": [
+                        {
+                            "key": "db.statement",
+                            "type": "string",
+                            "value": "SELECT \"cat_breed\".\"id\" AS \"id\", \"cat_breed\".\"name\" AS \"name\", \"cat_breed\".\"link\" AS \"link\", \"cat_breed\".\"description\" AS \"description\" FROM \"cat_breed\" WHERE \"cat_breed\".\"id\" = ?"
+                        },
+                        {
+                            "key": "db.system",
+                            "type": "string",
+                            "value": "postgresql"
+                        },
+                        {
+                            "key": "net.peer.port",
+                            "type": "int64",
+                            "value": 5432
+                        },
+                        {
+                            "key": "db.connection_string",
+                            "type": "string",
+                            "value": "postgresql://cat-api-postgres:5432"
+                        },
+                        {
+                            "key": "net.peer.name",
+                            "type": "string",
+                            "value": "cat-api-postgres"
+                        },
+                        {
+                            "key": "db.user",
+                            "type": "string",
+                            "value": "postgres"
+                        },
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "db.name",
+                            "type": "string",
+                            "value": "cats"
+                        },
+                        {
+                            "key": "db.sql.table",
+                            "type": "string",
+                            "value": "cat_breed"
+                        },
+                        {
+                            "key": "db.operation",
+                            "type": "string",
+                            "value": "SELECT"
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "client"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p5",
+                    "warnings": null
+                },
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "d044c2e6b60d312b",
+                    "operationName": "SELECT cats.CAT",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                            "spanID": "90f719172ee8f1d0"
+                        }
+                    ],
+                    "startTime": 1702325553813193,
+                    "duration": 830,
+                    "tags": [
+                        {
+                            "key": "db.statement",
+                            "type": "string",
+                            "value": "SELECT COUNT(id) FROM CAT"
+                        },
+                        {
+                            "key": "db.system",
+                            "type": "string",
+                            "value": "postgresql"
+                        },
+                        {
+                            "key": "net.peer.port",
+                            "type": "int64",
+                            "value": 5432
+                        },
+                        {
+                            "key": "db.connection_string",
+                            "type": "string",
+                            "value": "postgresql://cat-api-postgres:5432"
+                        },
+                        {
+                            "key": "net.peer.name",
+                            "type": "string",
+                            "value": "cat-api-postgres"
+                        },
+                        {
+                            "key": "db.user",
+                            "type": "string",
+                            "value": "postgres"
+                        },
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "db.name",
+                            "type": "string",
+                            "value": "cats"
+                        },
+                        {
+                            "key": "db.sql.table",
+                            "type": "string",
+                            "value": "CAT"
+                        },
+                        {
+                            "key": "db.operation",
+                            "type": "string",
+                            "value": "SELECT"
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "client"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p5",
+                    "warnings": null
+                },
+                {
+                    "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                    "spanID": "9468a3f758c0b207",
+                    "operationName": "SELECT cats.cat",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "30c847d9fec1c0509f690c7f072d25dd",
+                            "spanID": "518a239eb2b0b79d"
+                        }
+                    ],
+                    "startTime": 1702325553807243,
+                    "duration": 1426,
+                    "tags": [
+                        {
+                            "key": "db.statement",
+                            "type": "string",
+                            "value": "SELECT \"cat\".\"id\" AS \"id\", \"cat\".\"name\" AS \"name\", \"cat\".\"breed_id\" AS \"breed_id\", \"cat\".\"favorite_spot\" AS \"favorite_spot\" FROM \"cat\" WHERE \"cat\".\"name\" = ?"
+                        },
+                        {
+                            "key": "db.system",
+                            "type": "string",
+                            "value": "postgresql"
+                        },
+                        {
+                            "key": "net.peer.port",
+                            "type": "int64",
+                            "value": 5432
+                        },
+                        {
+                            "key": "db.connection_string",
+                            "type": "string",
+                            "value": "postgresql://cat-api-postgres:5432"
+                        },
+                        {
+                            "key": "net.peer.name",
+                            "type": "string",
+                            "value": "cat-api-postgres"
+                        },
+                        {
+                            "key": "db.user",
+                            "type": "string",
+                            "value": "postgres"
+                        },
+                        {
+                            "key": "thread.name",
+                            "type": "string",
+                            "value": "http-nio-8080-exec-8"
+                        },
+                        {
+                            "key": "db.name",
+                            "type": "string",
+                            "value": "cats"
+                        },
+                        {
+                            "key": "db.sql.table",
+                            "type": "string",
+                            "value": "cat"
+                        },
+                        {
+                            "key": "db.operation",
+                            "type": "string",
+                            "value": "SELECT"
+                        },
+                        {
+                            "key": "thread.id",
+                            "type": "int64",
+                            "value": 174
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "client"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p5",
+                    "warnings": null
+                }
+            ],
+            "processes": {
+                "p1": {
+                    "serviceName": "cat-api",
+                    "tags": [
+                        {
+                            "key": "container.id",
+                            "type": "string",
+                            "value": "1345fe53cc28e4d84b5622fbfab2dc55fbd19766687521b8cb4e09e2c2941e11"
+                        },
+                        {
+                            "key": "host.arch",
+                            "type": "string",
+                            "value": "aarch64"
+                        },
+                        {
+                            "key": "host.name",
+                            "type": "string",
+                            "value": "1345fe53cc28"
+                        },
+                        {
+                            "key": "os.description",
+                            "type": "string",
+                            "value": "Linux 6.4.16-linuxkit"
+                        },
+                        {
+                            "key": "os.type",
+                            "type": "string",
+                            "value": "linux"
+                        },
+                        {
+                            "key": "otel.library.name",
+                            "type": "string",
+                            "value": "io.opentelemetry.opentelemetry-instrumentation-annotations-1.16"
+                        },
+                        {
+                            "key": "otel.library.version",
+                            "type": "string",
+                            "value": "1.31.0-alpha"
+                        },
+                        {
+                            "key": "process.command_args",
+                            "type": "string",
+                            "value": "[\"/opt/java/openjdk/bin/java\",\"-javaagent:/opt/jib-agents/opentelemetry-javaagent-1.31.0.jar\",\"-cp\",\"@/app/jib-classpath-file\",\"org.jetbrains.CatApplicationKt\"]"
+                        },
+                        {
+                            "key": "process.executable.path",
+                            "type": "string",
+                            "value": "/opt/java/openjdk/bin/java"
+                        },
+                        {
+                            "key": "process.pid",
+                            "type": "int64",
+                            "value": 1
+                        },
+                        {
+                            "key": "process.runtime.description",
+                            "type": "string",
+                            "value": "Eclipse Adoptium OpenJDK 64-Bit Server VM 17.0.9+9"
+                        },
+                        {
+                            "key": "process.runtime.name",
+                            "type": "string",
+                            "value": "OpenJDK Runtime Environment"
+                        },
+                        {
+                            "key": "process.runtime.version",
+                            "type": "string",
+                            "value": "17.0.9+9"
+                        },
+                        {
+                            "key": "telemetry.auto.version",
+                            "type": "string",
+                            "value": "1.31.0"
+                        },
+                        {
+                            "key": "telemetry.sdk.language",
+                            "type": "string",
+                            "value": "java"
+                        },
+                        {
+                            "key": "telemetry.sdk.name",
+                            "type": "string",
+                            "value": "opentelemetry"
+                        },
+                        {
+                            "key": "telemetry.sdk.version",
+                            "type": "string",
+                            "value": "1.31.0"
+                        }
+                    ]
+                },
+                "p2": {
+                    "serviceName": "cat-api",
+                    "tags": [
+                        {
+                            "key": "container.id",
+                            "type": "string",
+                            "value": "1345fe53cc28e4d84b5622fbfab2dc55fbd19766687521b8cb4e09e2c2941e11"
+                        },
+                        {
+                            "key": "host.arch",
+                            "type": "string",
+                            "value": "aarch64"
+                        },
+                        {
+                            "key": "host.name",
+                            "type": "string",
+                            "value": "1345fe53cc28"
+                        },
+                        {
+                            "key": "os.description",
+                            "type": "string",
+                            "value": "Linux 6.4.16-linuxkit"
+                        },
+                        {
+                            "key": "os.type",
+                            "type": "string",
+                            "value": "linux"
+                        },
+                        {
+                            "key": "otel.library.name",
+                            "type": "string",
+                            "value": "io.opentelemetry.spring-data-1.8"
+                        },
+                        {
+                            "key": "otel.library.version",
+                            "type": "string",
+                            "value": "1.31.0-alpha"
+                        },
+                        {
+                            "key": "process.command_args",
+                            "type": "string",
+                            "value": "[\"/opt/java/openjdk/bin/java\",\"-javaagent:/opt/jib-agents/opentelemetry-javaagent-1.31.0.jar\",\"-cp\",\"@/app/jib-classpath-file\",\"org.jetbrains.CatApplicationKt\"]"
+                        },
+                        {
+                            "key": "process.executable.path",
+                            "type": "string",
+                            "value": "/opt/java/openjdk/bin/java"
+                        },
+                        {
+                            "key": "process.pid",
+                            "type": "int64",
+                            "value": 1
+                        },
+                        {
+                            "key": "process.runtime.description",
+                            "type": "string",
+                            "value": "Eclipse Adoptium OpenJDK 64-Bit Server VM 17.0.9+9"
+                        },
+                        {
+                            "key": "process.runtime.name",
+                            "type": "string",
+                            "value": "OpenJDK Runtime Environment"
+                        },
+                        {
+                            "key": "process.runtime.version",
+                            "type": "string",
+                            "value": "17.0.9+9"
+                        },
+                        {
+                            "key": "telemetry.auto.version",
+                            "type": "string",
+                            "value": "1.31.0"
+                        },
+                        {
+                            "key": "telemetry.sdk.language",
+                            "type": "string",
+                            "value": "java"
+                        },
+                        {
+                            "key": "telemetry.sdk.name",
+                            "type": "string",
+                            "value": "opentelemetry"
+                        },
+                        {
+                            "key": "telemetry.sdk.version",
+                            "type": "string",
+                            "value": "1.31.0"
+                        }
+                    ]
+                },
+                "p3": {
+                    "serviceName": "cat-api",
+                    "tags": [
+                        {
+                            "key": "container.id",
+                            "type": "string",
+                            "value": "1345fe53cc28e4d84b5622fbfab2dc55fbd19766687521b8cb4e09e2c2941e11"
+                        },
+                        {
+                            "key": "host.arch",
+                            "type": "string",
+                            "value": "aarch64"
+                        },
+                        {
+                            "key": "host.name",
+                            "type": "string",
+                            "value": "1345fe53cc28"
+                        },
+                        {
+                            "key": "os.description",
+                            "type": "string",
+                            "value": "Linux 6.4.16-linuxkit"
+                        },
+                        {
+                            "key": "os.type",
+                            "type": "string",
+                            "value": "linux"
+                        },
+                        {
+                            "key": "otel.library.name",
+                            "type": "string",
+                            "value": "io.opentelemetry.tomcat-10.0"
+                        },
+                        {
+                            "key": "otel.library.version",
+                            "type": "string",
+                            "value": "1.31.0-alpha"
+                        },
+                        {
+                            "key": "process.command_args",
+                            "type": "string",
+                            "value": "[\"/opt/java/openjdk/bin/java\",\"-javaagent:/opt/jib-agents/opentelemetry-javaagent-1.31.0.jar\",\"-cp\",\"@/app/jib-classpath-file\",\"org.jetbrains.CatApplicationKt\"]"
+                        },
+                        {
+                            "key": "process.executable.path",
+                            "type": "string",
+                            "value": "/opt/java/openjdk/bin/java"
+                        },
+                        {
+                            "key": "process.pid",
+                            "type": "int64",
+                            "value": 1
+                        },
+                        {
+                            "key": "process.runtime.description",
+                            "type": "string",
+                            "value": "Eclipse Adoptium OpenJDK 64-Bit Server VM 17.0.9+9"
+                        },
+                        {
+                            "key": "process.runtime.name",
+                            "type": "string",
+                            "value": "OpenJDK Runtime Environment"
+                        },
+                        {
+                            "key": "process.runtime.version",
+                            "type": "string",
+                            "value": "17.0.9+9"
+                        },
+                        {
+                            "key": "telemetry.auto.version",
+                            "type": "string",
+                            "value": "1.31.0"
+                        },
+                        {
+                            "key": "telemetry.sdk.language",
+                            "type": "string",
+                            "value": "java"
+                        },
+                        {
+                            "key": "telemetry.sdk.name",
+                            "type": "string",
+                            "value": "opentelemetry"
+                        },
+                        {
+                            "key": "telemetry.sdk.version",
+                            "type": "string",
+                            "value": "1.31.0"
+                        }
+                    ]
+                },
+                "p4": {
+                    "serviceName": "cat-api",
+                    "tags": [
+                        {
+                            "key": "container.id",
+                            "type": "string",
+                            "value": "1345fe53cc28e4d84b5622fbfab2dc55fbd19766687521b8cb4e09e2c2941e11"
+                        },
+                        {
+                            "key": "host.arch",
+                            "type": "string",
+                            "value": "aarch64"
+                        },
+                        {
+                            "key": "host.name",
+                            "type": "string",
+                            "value": "1345fe53cc28"
+                        },
+                        {
+                            "key": "os.description",
+                            "type": "string",
+                            "value": "Linux 6.4.16-linuxkit"
+                        },
+                        {
+                            "key": "os.type",
+                            "type": "string",
+                            "value": "linux"
+                        },
+                        {
+                            "key": "otel.library.name",
+                            "type": "string",
+                            "value": "io.opentelemetry.spring-webmvc-6.0"
+                        },
+                        {
+                            "key": "otel.library.version",
+                            "type": "string",
+                            "value": "1.31.0-alpha"
+                        },
+                        {
+                            "key": "process.command_args",
+                            "type": "string",
+                            "value": "[\"/opt/java/openjdk/bin/java\",\"-javaagent:/opt/jib-agents/opentelemetry-javaagent-1.31.0.jar\",\"-cp\",\"@/app/jib-classpath-file\",\"org.jetbrains.CatApplicationKt\"]"
+                        },
+                        {
+                            "key": "process.executable.path",
+                            "type": "string",
+                            "value": "/opt/java/openjdk/bin/java"
+                        },
+                        {
+                            "key": "process.pid",
+                            "type": "int64",
+                            "value": 1
+                        },
+                        {
+                            "key": "process.runtime.description",
+                            "type": "string",
+                            "value": "Eclipse Adoptium OpenJDK 64-Bit Server VM 17.0.9+9"
+                        },
+                        {
+                            "key": "process.runtime.name",
+                            "type": "string",
+                            "value": "OpenJDK Runtime Environment"
+                        },
+                        {
+                            "key": "process.runtime.version",
+                            "type": "string",
+                            "value": "17.0.9+9"
+                        },
+                        {
+                            "key": "telemetry.auto.version",
+                            "type": "string",
+                            "value": "1.31.0"
+                        },
+                        {
+                            "key": "telemetry.sdk.language",
+                            "type": "string",
+                            "value": "java"
+                        },
+                        {
+                            "key": "telemetry.sdk.name",
+                            "type": "string",
+                            "value": "opentelemetry"
+                        },
+                        {
+                            "key": "telemetry.sdk.version",
+                            "type": "string",
+                            "value": "1.31.0"
+                        }
+                    ]
+                },
+                "p5": {
+                    "serviceName": "cat-api",
+                    "tags": [
+                        {
+                            "key": "container.id",
+                            "type": "string",
+                            "value": "1345fe53cc28e4d84b5622fbfab2dc55fbd19766687521b8cb4e09e2c2941e11"
+                        },
+                        {
+                            "key": "host.arch",
+                            "type": "string",
+                            "value": "aarch64"
+                        },
+                        {
+                            "key": "host.name",
+                            "type": "string",
+                            "value": "1345fe53cc28"
+                        },
+                        {
+                            "key": "os.description",
+                            "type": "string",
+                            "value": "Linux 6.4.16-linuxkit"
+                        },
+                        {
+                            "key": "os.type",
+                            "type": "string",
+                            "value": "linux"
+                        },
+                        {
+                            "key": "otel.library.name",
+                            "type": "string",
+                            "value": "io.opentelemetry.jdbc"
+                        },
+                        {
+                            "key": "otel.library.version",
+                            "type": "string",
+                            "value": "1.31.0-alpha"
+                        },
+                        {
+                            "key": "process.command_args",
+                            "type": "string",
+                            "value": "[\"/opt/java/openjdk/bin/java\",\"-javaagent:/opt/jib-agents/opentelemetry-javaagent-1.31.0.jar\",\"-cp\",\"@/app/jib-classpath-file\",\"org.jetbrains.CatApplicationKt\"]"
+                        },
+                        {
+                            "key": "process.executable.path",
+                            "type": "string",
+                            "value": "/opt/java/openjdk/bin/java"
+                        },
+                        {
+                            "key": "process.pid",
+                            "type": "int64",
+                            "value": 1
+                        },
+                        {
+                            "key": "process.runtime.description",
+                            "type": "string",
+                            "value": "Eclipse Adoptium OpenJDK 64-Bit Server VM 17.0.9+9"
+                        },
+                        {
+                            "key": "process.runtime.name",
+                            "type": "string",
+                            "value": "OpenJDK Runtime Environment"
+                        },
+                        {
+                            "key": "process.runtime.version",
+                            "type": "string",
+                            "value": "17.0.9+9"
+                        },
+                        {
+                            "key": "telemetry.auto.version",
+                            "type": "string",
+                            "value": "1.31.0"
+                        },
+                        {
+                            "key": "telemetry.sdk.language",
+                            "type": "string",
+                            "value": "java"
+                        },
+                        {
+                            "key": "telemetry.sdk.name",
+                            "type": "string",
+                            "value": "opentelemetry"
+                        },
+                        {
+                            "key": "telemetry.sdk.version",
+                            "type": "string",
+                            "value": "1.31.0"
+                        }
+                    ]
+                }
+            },
+            "warnings": null
+        }
+    ],
+    "total": 0,
+    "limit": 0,
+    "offset": 0,
+    "errors": null
+}
