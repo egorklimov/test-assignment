@@ -5,7 +5,6 @@ import importlib
 import pkgutil
 import random
 
-from cat_recommender.apis.random_coffee_api_base import BaseRandomCoffeeApi
 import cat_recommender
 
 from fastapi import (  # noqa: F401
@@ -25,7 +24,8 @@ from fastapi import (  # noqa: F401
 
 from cat_recommender.models.extra_models import TokenModel  # noqa: F401
 from cat_recommender.models.cat_for_coffee_response import CatForCoffeeResponse
-from cat_recommender.models.suggest_cat_for_random_coffee_request import SuggestCatForRandomCoffeeRequest
+from cat_recommender.models.suggest_cat_for_random_coffee_request \
+    import SuggestCatForRandomCoffeeRequest
 
 
 router = APIRouter()
@@ -44,7 +44,8 @@ for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
     response_model_by_alias=True,
 )
 async def suggest_cat(
-    suggest_cat_for_random_coffee_request: SuggestCatForRandomCoffeeRequest = Body(None, description="Suggests a cat for a coffee."),
+    suggest_cat_for_random_coffee_request: SuggestCatForRandomCoffeeRequest = Body(
+        None, description="Suggests a cat for a coffee."),
 ) -> CatForCoffeeResponse:
     cat_id = suggest_cat_for_random_coffee_request.cat_id
     if cat_id % 1001 == 0:
