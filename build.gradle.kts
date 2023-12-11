@@ -1,10 +1,7 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
 plugins {
-    id("org.openapi.generator") version "7.0.1"
-
     id("org.springframework.boot") version "3.0.6"
     id("io.spring.dependency-management") version "1.1.0"
     id("com.google.cloud.tools.jib") version "3.3.1"
@@ -75,93 +72,12 @@ tasks {
         }
     }
 
-    openApiValidate {
-        inputSpec.set("$projectDir/src/main/resources/static/openapi.yaml")
-        recommend.set(true)
-    }
-
-    this[openApiGenerate.name].dependsOn(ktlintCheck)
-    openApiGenerate {
-        generatorName.set("kotlin-spring")
-        inputSpec.set("$projectDir/src/main/resources/static/openapi.yaml")
-        outputDir.set("$buildDir/generated")
-        apiPackage.set("$group.generated.api")
-        modelPackage.set("$group.generated.api.model")
-        configOptions.set(
-            mapOf(
-                "groupId" to group.toString(),
-                "gradleBuildFile" to "false",
-                "dateLibrary" to "java8",
-                "interfaceOnly" to "true",
-                "useTags" to "true",
-                "useSpringBoot3" to "true",
-                "useBeanValidation" to "true",
-                "swaggerDocketConfig" to "false",
-                "documentationProvider" to "source",
-                "useSwaggerUI" to "true",
-                "serializationLibrary" to "jackson"
-            )
-        )
-    }
-
-    task<GenerateTask>("fastAPIGenerate") {
-        cleanupOutput.set(true)
-        generatorName.set("python-fastapi")
-        inputSpec.set("$projectDir/cat-recommender-py/spec/openapi.yaml")
-        outputDir.set("$projectDir/cat-recommender-py/cat-recommender")
-        configOptions.set(
-            mapOf(
-                "fastapiImplementationPackage" to "cat_recommender",
-                "packageName" to "cat_recommender",
-                "packageVersion" to "0.0.1"
-            )
-        )
-    }
-
-    task<GenerateTask>("feignClientGenerate") {
-        val group = "org.jetbrains"
-        cleanupOutput.set(false)
-        generatorName.set("kotlin-spring")
-        library.set("spring-cloud")
-        inputSpec.set("$projectDir/cat-recommender-py/spec/openapi.yaml")
-        outputDir.set("$buildDir/generated")
-        apiPackage.set("$group.generated.petshop.client")
-        modelPackage.set("$group.generated.petshop.client.model")
-        configOptions.set(
-            mapOf(
-                "groupId" to group.toString(),
-                "gradleBuildFile" to "false",
-                "dateLibrary" to "java8",
-                "interfaceOnly" to "true",
-                "useTags" to "true",
-                "useSpringBoot3" to "true",
-                "useBeanValidation" to "true",
-                "swaggerDocketConfig" to "false",
-                "documentationProvider" to "source",
-                "useSwaggerUI" to "true",
-                "useFeignClientUrl" to "false",
-                "serializationLibrary" to "jackson"
-            )
-        )
-    }
-    this["feignClientGenerate"].dependsOn(ktlintCheck)
-
     compileKotlin {
-        dependsOn("feignClientGenerate")
-        dependsOn(openApiGenerate)
         compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
         // https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/boot-features-kotlin.html#boot-features-kotlin-null-safety
         compilerOptions.freeCompilerArgs.add("-Xjsr305=strict")
 
         sourceSets {
-            main {
-                kotlin {
-                    srcDirs(
-                        "src/main/kotlin/",
-                        "$buildDir/generated/src/main/kotlin"
-                    )
-                }
-            }
             test {
                 // Load karate files as resources
                 resources {

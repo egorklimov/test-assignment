@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.ObjectMapper
 import feign.FeignException
 import io.opentelemetry.instrumentation.annotations.WithSpan
-import org.jetbrains.generated.petshop.client.RandomCoffeeApiClient
-import org.jetbrains.generated.petshop.client.model.SuggestCatForRandomCoffeeRequest
+import org.jetbrains.recommender.RandomCoffeeApiClient
+import org.jetbrains.recommender.model.SuggestCatForRandomCoffeeRequest
 import org.jetbrains.repository.Cat
 import org.jetbrains.repository.CatBreedRepository
 import org.jetbrains.repository.CatRepository
@@ -57,7 +57,7 @@ class CatService(
     @WithSpan
     private fun suggestCat(cat: CatWithBreed): Long =
         try {
-            catRecommenderClient.suggestCat(SuggestCatForRandomCoffeeRequest(cat.id, cat.name, cat.breed)).body!!.id
+            catRecommenderClient.suggestCat(SuggestCatForRandomCoffeeRequest(cat.id, cat.name, cat.breed)).id
         } catch (e: FeignException) {
             log.error("Failed to suggest cat", e)
             throw CatRecommenderIntegrationException(

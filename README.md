@@ -77,20 +77,12 @@ To run tests in [the test folder,](https://github.com/egorklimov/test-assignment
 ```
 
 #### HTTP API
+
 OpenAPI spec is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/main/src/main/resources/static/openapi.yaml) file. 
 
-App follows API-first approach, if you want to add new endpoints, please modify openapi spec and then generate server side using **`openApiGenerate`** command:
-```bash
-./gradlew openApiGenerate
-```
-
 #### cat-recommender client
-OpenAPI spec for cat-recommender is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/main/cat-recommender-py/spec/openapi.yaml) file.
 
-You can generate client using **`feignClientGenerate`** command:
-```bash
-./gradlew feignClientGenerate
-```
+OpenAPI spec for cat-recommender is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/main/cat-recommender/openapi.yaml) file.
 
 #### Database
 Database migrations are available in the [db.migration](https://github.com/egorklimov/test-assignment/blob/main/src/main/resources/db/migration) directory.
@@ -115,19 +107,15 @@ You can configure connection to the database using your favorite tool, e.g., psq
 Service to generate cat pairs.
 
 #### HTTP API
-OpenAPI spec is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/main/cat-recommender-py/spec/openapi.yaml) file.
 
-**`cat-recommender-api`** HTTP API documentation will be available by [here](http://localhost:8081/docs).
+OpenAPI spec is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/main/cat-recommender/openapi.yaml) file.
+
+**`cat-recommender-api`** HTTP API documentation will be available [here](http://localhost:8081/docs).
+
 To call endpoint, please press "Try it out" button near the endpoint documentation.
 
-App follows API-first approach, if you want to add new endpoints, please modify openapi spec and then generate server side using **`fastAPIGenerate`** command:
-```bash
-./gradlew fastAPIGenerate
-```
-
 #### Build
-See [README](https://github.com/egorklimov/test-assignment/blob/main/cat-recommender-py/cat-recommender/README.md) file in cat-recommender directory.
-
+See [README](https://github.com/egorklimov/test-assignment/blob/main/cat-recommender/README.md) file in cat-recommender directory.
 
 ### Distributed tracing
 Distributed tracing is a method of observing requests as they propagate through distributed cloud environments.
