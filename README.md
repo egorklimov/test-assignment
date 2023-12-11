@@ -117,7 +117,10 @@ Service to generate cat pairs.
 #### HTTP API
 OpenAPI spec is described in the [openapi.yaml](https://github.com/egorklimov/test-assignment/blob/main/cat-recommender-py/spec/openapi.yaml) file.
 
-App follows API-first approach, if you want to add new endpoints, please modify openapi spec and then generate server side using **`openApiGenerate`** command:
+**`cat-recommender-api`** HTTP API documentation will be available by [here](http://localhost:8081/docs).
+To call endpoint, please press "Try it out" button near the endpoint documentation.
+
+App follows API-first approach, if you want to add new endpoints, please modify openapi spec and then generate server side using **`fastAPIGenerate`** command:
 ```bash
 ./gradlew fastAPIGenerate
 ```
