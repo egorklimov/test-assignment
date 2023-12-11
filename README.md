@@ -137,7 +137,7 @@ Dataflow is similar to the [Jaeger’s SPM demo environment](https://github.com/
 2. **`javaagent`** sends traces and metrics to the **`otel-collector`**
 3. **`cat-recommender-api`** is instrumented by **`opentelemetry-instrument`**
 4. **`opentelemetry-instrument`** sends traces to the **`otel-collector`**
-5**`otel-collector`** sends data to the **`Jaeger`** and **`Prometheus`**
+5. **`otel-collector`** sends data to the **`Jaeger`** and **`Prometheus`**
 
 <p align="center">
   <img src="https://github.com/egorklimov/test-assignment/blob/main/docs/tracing.png?raw=true" alt="Tracing schema" width="738">
