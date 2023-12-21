@@ -12,7 +12,7 @@ This task has two parts:
 * In the bonus part of the task, we ask you to improve this tool using machine learning models.
 
 **Requirements**:
-* Detect performance issues, anomalies, bugs, code or architectural smells using runtime information. As a first step, you should detect the N+1 query problem in the **`cat-api`** service.
+* Detect performance issues, anomalies, bugs, code or architectural smells using runtime information. As a first step, you should detect the [N+1 query problem](https://docs.sentry.io/product/issues/issue-details/performance-issues/n-one-queries/) in the **`cat-api`** service.
 * Issues found must be linked to source code and shown to the user. For example, the problem is in method X.
 
 **Desirable**:
